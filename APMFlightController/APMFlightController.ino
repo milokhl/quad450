@@ -183,6 +183,10 @@
     void loop() {
       counter++; //counter is used to control the rate of print statements
     
+      if (counter > 500) {
+        hal.uartA->println("Heartbeat");
+      }
+    
       //makes the loop wait until new accelerometer data comes in
       //while (ins.num_samples_available() == 0);
     
@@ -272,9 +276,9 @@
         	  yaw); */
         
        //print out the roll
-        hal.uartA->printf_P(
-              PSTR("D: %4.1f \n"),
-        	  roll);
+//        hal.uartA->printf_P(
+//              PSTR("D: %4.1f \n"),
+//        	  roll);
         /*
         hal.console->print("Lat: ");
               print_latlon(hal.console,gps->latitude);
